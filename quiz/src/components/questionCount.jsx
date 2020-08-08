@@ -4,7 +4,7 @@ class Count extends React.Component {
   render() {
     return (
 <div className="question-count">
-Question <span>1</span> of <span>{this.props.data.length}</span>
+Question <span>{this.props.id+1}</span> of <span>{this.props.data2.length}</span>
 </div>
 );}}
 

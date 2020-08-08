@@ -6,22 +6,42 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle
 } from 'reactstrap';
 
 const H = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const togglec = () => setIsOpen(!isOpen);
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggledd = () => setDropdownOpen(!dropdownOpen);
+
       return (
       <header>
   <Navbar color="light" light expand="md">
     <NavbarBrand href="/">Ref Quiz</NavbarBrand>
-    <NavbarToggler onClick={toggle} />
+    <NavbarToggler onClick={togglec} />
     <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
-        <NavItem>
-          <NavLink href="/components/">USA Hockey</NavLink>
-        </NavItem>
+
+      <Dropdown nav isOpen={dropdownOpen} toggle={toggledd}>
+         <DropdownToggle nav caret>
+           USA Hockey
+         </DropdownToggle>
+         <DropdownMenu>
+           <DropdownItem>Level 1</DropdownItem>
+           <DropdownItem>Level 2</DropdownItem>
+           <DropdownItem>Level 3</DropdownItem>
+           <DropdownItem>Level 4</DropdownItem>
+           <DropdownItem divider />
+           <DropdownItem>All</DropdownItem>
+         </DropdownMenu>
+       </Dropdown>
+
         <NavItem>
           <NavLink href="#">Hockey Canada</NavLink>
         </NavItem>
