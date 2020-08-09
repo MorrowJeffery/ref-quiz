@@ -5,7 +5,6 @@ class Answers extends React.Component {
   render() {
     const answers = this.props.data2[this.props.id].answers;
     const radioName = this.props.name;
-    console.log('radionames', radioName);
     const listItems = answers.map((answer) =>
     <li>
     <input type="radio" name={radioName}/>
