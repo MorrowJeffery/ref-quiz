@@ -1,7 +1,7 @@
 import React from 'react';
 
-const QUESTION_U1 = [
-  {
+const QUESTION_U1 = {
+  1:{
     question: 'What is icing?',
     answers: [
       'When a player of a team shoots, bats with the hand or stick or deflects the puck from his own half of the ice to the other half and there is little likelihood of the team who shot the puck to get to the puck before the defending team touches the puck or it crosses the defending teams goal line.',
@@ -11,7 +11,7 @@ const QUESTION_U1 = [
     ],
     correct: 3
   },
-  {
+  2:{
     question: <span>What are the three types of JavaScript errors?</span>,
     answers: [
       <span>Parse Errors, Syntax Errors and Runtime Errors.</span>,
@@ -21,7 +21,7 @@ const QUESTION_U1 = [
     ],
     correct: 1
   },
-  {
+  3:{
     question: <span>In React, which is TRUE about the difference between a class component, a PureComponent, and a functional component?</span>,
     answers: [
       <span>Standard class components have state, lifecycle hooks, and refs.</span>,
@@ -31,6 +31,9 @@ const QUESTION_U1 = [
     ],
     correct: 3
   }
-];
+};
 
 export default QUESTION_U1;
+
+
+//export default QUESTION_U1;

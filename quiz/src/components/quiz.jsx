@@ -3,19 +3,23 @@ import Count from './questionCount.jsx'
 import Answers from './answerOption.jsx'
 import Question from './question.jsx'
 
-
-import QUESTION_U1 from '../store/USAH/level1.js';
-
 class Quiz extends React.Component {
   render() {
-    const data1 = this.props.data
-    const k1 = this.props.k
+
+    const data1 = Object.values(this.props.data[this.props.k]['qa'])
+    console.log('d1',data1)
+
+    var qa1 = [];
+    for (var j = 0; j < data1.length; j++) {
+        qa1.push(<Count data2={data1} id={j}/>);
+        qa1.push(<Question data2={data1} id={j}/>);
+        qa1.push(<Answers data2={data1} id={j}/>);
+    }
+    console.log('qa1',qa1)
 
     return (
       <div>
-      <Count data2={data1} id={k1}/>
-      <Question data2={data1} id={k1}/>
-      <Answers data2={data1} id={k1}/>
+      {qa1}
       </div>
     );
   }
