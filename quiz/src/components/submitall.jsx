@@ -8,14 +8,14 @@ import React, { useState } from 'react';
     if(isGraded){
       return (
           <button className="gradeall" onClick={toggleg}>
-            Reset All
+            Reset Test
           </button>
         );
     }
     else {
       return (
           <button className="gradeall" onClick={toggleg}>
-            Grade All
+            Grade Test
           </button>
 
         );

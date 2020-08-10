@@ -1,5 +1,3 @@
-import React from 'react';
-
 const QUESTION_U2 = {
   1:{
     question: 'What is icing?',
@@ -12,12 +10,12 @@ const QUESTION_U2 = {
     correct: 3
   },
   2:{
-    question: <span>What are the three types of JavaScript errors?</span>,
+    question: "What are the three types of JavaScript errors?",
     answers: [
-      <span>Parse Errors, Syntax Errors and Runtime Errors.</span>,
-      <span>Loading Errors, Runtime Errors and Logic Errors.</span>,
-      <span>Syntax Errors, Logic Errors and Loading Errors.</span>,
-      <span>Bad Errors, Very Bad Errors, and Fatal Errors.</span>
+      "Parse Errors, Syntax Errors and Runtime Errors.",
+      "Loading Errors, Runtime Errors and Logic Errors.",
+      "Syntax Errors, Logic Errors and Loading Errors.",
+      "Bad Errors, Very Bad Errors, and Fatal Errors."
     ],
     correct: 1
   }
