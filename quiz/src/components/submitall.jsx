@@ -1,61 +1,25 @@
 import React, { useState } from 'react';
 
-  const G = (props) => {
+/*https://stackoverflow.com/questions/53685140/how-to-change-button-text-in-reactjs*/
 
-    const text='Grade';
+  const GradeAll = (props) => {
     const [isGraded, setIsGraded] = useState(false);
     const toggleg = () => setIsGraded(!isGraded);
-    console.log('look1',isGraded)
-    console.log('text ng', text)
     if(isGraded){
-      const text='Reset'
-      console.log('look2', isGraded)
-      console.log('text g', text)
+      return (
+          <button className="gradeall" onClick={toggleg}>
+            Reset All
+          </button>
+        );
+    }
+    else {
+      return (
+          <button className="gradeall" onClick={toggleg}>
+            Grade All
+          </button>
+
+        );
     };
-
-return (
-    <button className="grade" onClick={toggleg}>
-      {text}
-    </button>
-
-  );
-
 }
 
-export default G;
-
-
-
-
-
-import React, { useState } from 'react';
-
-class GradeButton extends React.Component {
-  render() {
-    var gbutton = [];
-    const [isGraded, setIsGraded] = useState(false);
-    const toggleg = () => setIsGraded(!isGraded);
-
-    if(!isGraded){
-        const text='Grade';
-        gbutton.push(<button onClick={toggleg}/>);
-        console.log('look1',isGraded)
-        console.log('text ng', text)
-      }
-    if(isGraded){
-        const text='Reset'
-        gbutton.push(<button onClick={toggleg}/>);
-        console.log('look2', isGraded)
-        console.log('text g', text)
-      };
-
-
-    return (
-      <div>
-      {gbutton}
-      </div>
-    );
-  }
-}
-
-export default GradeButton;
+export default GradeAll;

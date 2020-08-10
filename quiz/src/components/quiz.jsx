@@ -2,7 +2,9 @@ import React from 'react';
 import Count from './questionCount.jsx'
 import Answers from './answerOption.jsx'
 import Question from './question.jsx'
-import G from './submitone.jsx'
+import Grade from './submitone.jsx'
+import GradeAll from './submitall.jsx'
+
 
 class Quiz extends React.Component {
   render() {
@@ -14,12 +16,13 @@ class Quiz extends React.Component {
         qa1.push(<Count data2={data1} id1={j}/>);
         qa1.push(<Question data2={data1} id={j}/>);
         qa1.push(<Answers data2={data1} id={j} name={'question'+j.toString()+'test'+this.props.k}/>);
-        qa1.push(<G/>);
+        qa1.push(<Grade/>);
     }
 
     return (
       <div>
       {qa1}
+      <GradeAll/>
       </div>
     );
   }
