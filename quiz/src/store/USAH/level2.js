@@ -1,23 +1,21 @@
 const QUESTION_U2 = {
   1:{
-    question: 'What is icing?',
+    question: 'Please indicate which player serves the penalty: Bench Minor Penalty to Team Official.',
     answers: [
-      'When a player of a team shoots, bats with the hand or stick or deflects the puck from his own half of the ice to the other half and there is little likelihood of the team who shot the puck to get to the puck before the defending team touches the puck or it crosses the defending teams goal line.',
-      'when a player bats the puck in the air, or push it along the ice with his hand in his defending zone, directly to a teammate also in the defending zone',
-      'when players of an attacking team precede the puck into the attacking zone',
-      'When a player of a team shoots, bats with the hand or stick or deflects the puck from his own half of the ice completely beyond the goal line of the opposing team'
+      'Player on the ice when the infraction occurred.',
+      'Player on the bench (non goalkeeper) when the infraction occurred',
+      'Offending Player'
     ],
-    correct: 3
+    correct: 0
   },
   2:{
-    question: "What are the three types of JavaScript errors?",
+    question: "Please indicate the proper face-off location: Premature Goalie Substitution.",
     answers: [
-      "Parse Errors, Syntax Errors and Runtime Errors.",
-      "Loading Errors, Runtime Errors and Logic Errors.",
-      "Syntax Errors, Logic Errors and Loading Errors.",
-      "Bad Errors, Very Bad Errors, and Fatal Errors."
+      "Neutral Zone Face-off spot.",
+      "End Zone Face-off spot.",
+      "Center Ice Face-off spot."
     ],
-    correct: 1
+    correct: 2
   }
 };
 

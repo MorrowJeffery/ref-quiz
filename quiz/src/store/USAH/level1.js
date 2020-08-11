@@ -10,24 +10,20 @@ const QUESTION_U1 = {
     correct: 3
   },
   2:{
-    question: 'What are the three types of JavaScript errors?',
+    question: 'The proper signal for a goal scored is pointing at the goal with your non-whistle hand while simultaneously blowing the whistle.',
     answers: [
-      "Parse Errors, Syntax Errors and Runtime Errors.",
-      "Loading Errors, Runtime Errors and Logic Errors.",
-      "Syntax Errors, Logic Errors and Loading Errors.",
-      "Bad Errors, Very Bad Errors, and Fatal Errors."
+      "True",
+      "False"
     ],
-    correct: 1
+    correct: 0
   },
   3:{
-    question: "In React, which is TRUE about the difference between a class component, a PureComponent, and a functional component?",
+    question: "A player checks an opponent from behind with excessive force while the opponent is in a vulnerable or defenseless position or the action was deemed to be a deliberate attempt to injure an opponent. The proper penalty is a Match Penalty.",
     answers: [
-      "Standard class components have state, lifecycle hooks, and refs.",
-      "A PureComponent is just like a class component, but handles shouldComponentUpdate for you, with a shallow check for changes in props or state. This allows for a performance boost by preventing unnecessary rerenders.",
-      "Functional components are presentational; they don't have access to state or lifecycle hooks, and can't use refs.",
-      "All of the above."
+      "True",
+      "False"
     ],
-    correct: 3
+    correct: 0
   }
 };
 

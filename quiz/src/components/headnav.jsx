@@ -37,8 +37,11 @@ const H = (props) => {
            <DropdownItem>Level 2</DropdownItem>
            <DropdownItem>Level 3</DropdownItem>
            <DropdownItem>Level 4</DropdownItem>
+           <DropdownItem>All Levels</DropdownItem>
            <DropdownItem divider />
-           <DropdownItem>All</DropdownItem>
+           <DropdownItem>Sled</DropdownItem>
+           <DropdownItem divider />
+           <DropdownItem>Penalty Options</DropdownItem>
          </DropdownMenu>
        </Dropdown>
 
