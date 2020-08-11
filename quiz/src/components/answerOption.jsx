@@ -1,13 +1,18 @@
 import React from 'react';
 
 class Answers extends React.Component {
-
+  handleAnswerClick(ind) {
+    let userAnswer = ind;
+    let correctAnswer = this.props.data2[this.props.id].correct;
+    console.log(userAnswer===correctAnswer)
+  };
   render() {
+
     const answers = this.props.data2[this.props.id].answers;
     const radioName = this.props.name;
-    const listItems = answers.map((answer) =>
+    const listItems = answers.map((answer,ind) =>
     <li>
-    <input type="radio" name={radioName}/>
+    <input type="radio" name={radioName} id={ind} onClick={() => this.handleAnswerClick(ind)}/>
     <label>{answer}</label>
     </li>
     );
