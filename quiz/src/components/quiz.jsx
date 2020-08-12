@@ -14,7 +14,7 @@ class Quiz extends React.Component {
     for (var j = 0; j < data1.length; j++) {
         qa1.push(<Question data2={data1} id={j}/>);
         qa1.push(<Answers data2={data1} id={j} name={'question'+j.toString()+'test'+this.props.k}/>);
-        qa1.push(<Grade st={false} data2={data1[j]}/>);
+        qa1.push(<Grade st={false} data2={data1[j]} />);
     }
 
     return (

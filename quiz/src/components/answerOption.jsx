@@ -4,7 +4,9 @@ class Answers extends React.Component {
   handleAnswerClick(ind) {
     let userAnswer = ind;
     let correctAnswer = this.props.data2[this.props.id].correct;
-    console.log(userAnswer===correctAnswer)
+    let isCorrect = userAnswer===correctAnswer;
+    console.log('isCorrect',isCorrect);
+    return(isCorrect)
   };
   render() {
 
