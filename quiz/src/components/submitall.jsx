@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-/*https://stackoverflow.com/questions/53685140/how-to-change-button-text-in-reactjs*/
-
   const GradeAll = (props) => {
+
     const [isGraded, setIsGraded] = useState(false);
     const toggleg = () => setIsGraded(!isGraded);
     if(isGraded){

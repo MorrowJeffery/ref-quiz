@@ -1,6 +1,7 @@
 import React from 'react';
 
 class Grade extends React.Component {
+
   constructor(props) {
   super(props);
   this.handleGradeClick = this.handleGradeClick.bind(this);
@@ -38,20 +39,35 @@ handleShowAnsClick() {
             </div>)
               }
               else{
+                if(this.props.correct===true){
                   return(
                     <div>
-                    <h6>WRONG!</h6>
-                    <button className="grade" onClick={this.handleShowAnsClick}>
-                      Show Answer
-                    </button>
-
+                    <h6>Correct!</h6>
                 <button className="grade" onClick={this.handleResetClick}>
                   Reset
                 </button>
               </div>)
+
+            }
+
+            if(this.props.correct===false){
+              return(
+            <div>
+            <h6>WRONG!</h6>
+            <button className="grade" onClick={this.handleShowAnsClick}>
+              Show Answer
+            </button>
+
+        <button className="grade" onClick={this.handleResetClick}>
+          Reset
+        </button>
+      </div>)
+
+    }}
+
                 }
 
-        } else {
+         else {
           return(
             <div>
               <button className="grade" onClick={this.handleGradeClick}>
