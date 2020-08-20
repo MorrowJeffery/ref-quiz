@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 class Grade extends React.Component {
 
@@ -7,29 +8,35 @@ class Grade extends React.Component {
   this.handleGradeClick = this.handleGradeClick.bind(this);
   this.handleResetClick = this.handleResetClick.bind(this);
   this.handleShowAnsClick = this.handleShowAnsClick.bind(this);
-  this.state = {isGraded: this.props.st, isAnswer: false};
+  this.state = {isGraded: false, isShowAnswer: false, isButtonChecked:false};
 }
 
 handleGradeClick() {
-  this.setState({isGraded: true});
+  this.setState({isGraded: true, isButtonDiasbled:true});
+  $(`input[name=${this.props.name}]`).attr('disabled', 'disabled');
+
 }
 
 handleResetClick() {
-  this.setState({isGraded: false, isAnswer:false});
+  this.setState({isGraded: false, isShowAnswer:false, isButtonChecked:false});
+
+    $(`input[name=${this.props.name}]`).removeAttr("disabled");
+      $(`input[name=${this.props.name}]`).prop("checked", false);
+
 }
 
 handleShowAnsClick() {
-  this.setState({isAnswer: true});
+  this.setState({isShowAnswer: true, isButtonChecked: true});
 }
 
   render() {
         const isGraded = this.state.isGraded;
-        const isAnswer = this.state.isAnswer;
+        const isShowAnswer = this.state.isShowAnswer;
         let ans = this.props.data2.correct
         let fullans = this.props.data2.answers[ans]
 
         if (isGraded) {
-            if(isAnswer){
+            if(isShowAnswer){
                 return(
                   <div>
               <h6> {fullans} </h6>

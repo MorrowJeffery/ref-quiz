@@ -10,24 +10,35 @@ class Answers extends React.Component {
 
   handleAnswerClick(ind) {
     let userAnswer = ind;
-    let correctAnswer = this.props.data2[this.props.id].correct;
+    let correctAnswer = this.props.data1.correct;
+    let isCorrect = userAnswer===correctAnswer;
+    this.setState({ isCorrect: isCorrect });
+  };
+
+  handleGradebarClick(ind) {
+    let userAnswer = ind;
+    let correctAnswer = this.props.data1.correct;
     let isCorrect = userAnswer===correctAnswer;
     this.setState({ isCorrect: isCorrect });
   };
 
   render() {
-    const answers = this.props.data2[this.props.id].answers;
+    const answers = this.props.data1.answers;
     const radioName = this.props.name;
     const listItems = answers.map((answer,ind) =>
+    <div>
+    <ul className="answers">
     <li>
     <input type="radio" name={radioName} id={ind} onClick={() => this.handleAnswerClick(ind)}/>
     <label>{answer}</label>
     </li>
+    </ul>
+    </div>
     );
     return (
       <div>
-      <ul className="answers">{listItems}</ul>
-      <Grade st={this.props.st} data2={this.props.data1} correct={this.state.isCorrect}/>
+      {listItems}
+      <Grade name={radioName} data2={this.props.data1} correct={this.state.isCorrect}/>
 </div>
 
 );}}

@@ -8,7 +8,7 @@ import './index.scss';
 
 ReactDOM.render(
 <div>
-<H/>
+      <H/>
     <App />
 </div>
     ,
