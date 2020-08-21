@@ -1,5 +1,6 @@
 import React from 'react';
 import Grade from './submitone.jsx'
+import $ from 'jquery';
 
 class Answers extends React.Component {
 
@@ -8,14 +9,16 @@ class Answers extends React.Component {
     this.handleGradeOneClick = this.handleGradeOneClick.bind(this);
     this.handleResetOneClick = this.handleResetOneClick.bind(this);
     this.handleShowOneAnsClick = this.handleShowOneAnsClick.bind(this);
-    this.state = {isOneGraded: this.props.graded, isShowOneAnswer: false, isCorrect: false};
+    this.state = {isOneGraded: this.props.graded,
+       isShowOneAnswer: false,
+        isCorrect: false};
   }
 
   handleAnswerClick(ind) {
     let userAnswer = ind;
     let correctAnswer = this.props.data1.correct;
     let isCorrect = userAnswer===correctAnswer;
-    this.setState({ isCorrect: isCorrect });
+    this.setState({ isCorrect: isCorrect});
   };
 
   handleGradeOneClick() {
@@ -23,7 +26,9 @@ class Answers extends React.Component {
   }
 
   handleResetOneClick() {
-    this.setState({isOneGraded: false, isShowOneAnswer:false});
+    this.setState({isOneGraded: false,
+       isShowOneAnswer:false});
+    $(`input[name=${this.props.name}]`).prop("checked", false);
   }
 
   handleShowOneAnsClick() {
@@ -37,7 +42,11 @@ class Answers extends React.Component {
     <div>
     <ul className="answers">
     <li>
-    <input type="radio" disabled={this.state.isOneGraded} name={radioName} id={ind} onClick={() => this.handleAnswerClick(ind)}/>
+    <input type="radio"
+    disabled={this.state.isOneGraded}
+    name={radioName}
+    id={ind}
+    onClick={() => this.handleAnswerClick(ind)}/>
     <label>{answer}</label>
     </li>
     </ul>
