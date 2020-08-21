@@ -5,7 +5,10 @@ class Answers extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {isCorrect: false};
+    this.handleGradeOneClick = this.handleGradeOneClick.bind(this);
+    this.handleResetOneClick = this.handleResetOneClick.bind(this);
+    this.handleShowOneAnsClick = this.handleShowOneAnsClick.bind(this);
+    this.state = {isOneGraded: this.props.graded, isShowOneAnswer: false, isCorrect: false};
   }
 
   handleAnswerClick(ind) {
@@ -15,12 +18,17 @@ class Answers extends React.Component {
     this.setState({ isCorrect: isCorrect });
   };
 
-  handleGradebarClick(ind) {
-    let userAnswer = ind;
-    let correctAnswer = this.props.data1.correct;
-    let isCorrect = userAnswer===correctAnswer;
-    this.setState({ isCorrect: isCorrect });
-  };
+  handleGradeOneClick() {
+    this.setState({isOneGraded: true});
+  }
+
+  handleResetOneClick() {
+    this.setState({isOneGraded: false, isShowOneAnswer:false});
+  }
+
+  handleShowOneAnsClick() {
+    this.setState({isShowOneAnswer: true});
+  }
 
   render() {
     const answers = this.props.data1.answers;
@@ -29,7 +37,7 @@ class Answers extends React.Component {
     <div>
     <ul className="answers">
     <li>
-    <input type="radio" name={radioName} id={ind} onClick={() => this.handleAnswerClick(ind)}/>
+    <input type="radio" disabled={this.state.isOneGraded} name={radioName} id={ind} onClick={() => this.handleAnswerClick(ind)}/>
     <label>{answer}</label>
     </li>
     </ul>
@@ -38,7 +46,14 @@ class Answers extends React.Component {
     return (
       <div>
       {listItems}
-      <Grade graded={this.props.graded} name={radioName} data2={this.props.data1} correct={this.state.isCorrect}/>
+      <Grade resetclick={this.handleResetOneClick}
+              showanswerclick={this.handleShowOneAnsClick}
+              showanswer={this.state.isShowOneAnswer}
+              gradeclick={this.handleGradeOneClick}
+              onegraded={this.state.isOneGraded}
+              name={radioName}
+              data2={this.props.data1}
+              correct={this.state.isCorrect}/>
 </div>
 
 );}}
