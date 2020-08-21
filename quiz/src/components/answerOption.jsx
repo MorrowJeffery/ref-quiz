@@ -38,7 +38,7 @@ class Answers extends React.Component {
     return (
       <div>
       {listItems}
-      <Grade name={radioName} data2={this.props.data1} correct={this.state.isCorrect}/>
+      <Grade graded={this.props.graded} name={radioName} data2={this.props.data1} correct={this.state.isCorrect}/>
 </div>
 
 );}}

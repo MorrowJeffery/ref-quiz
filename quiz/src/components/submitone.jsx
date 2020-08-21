@@ -5,33 +5,33 @@ class Grade extends React.Component {
 
   constructor(props) {
   super(props);
-  this.handleGradeClick = this.handleGradeClick.bind(this);
-  this.handleResetClick = this.handleResetClick.bind(this);
-  this.handleShowAnsClick = this.handleShowAnsClick.bind(this);
-  this.state = {isGraded: false, isShowAnswer: false, isButtonChecked:false};
+  this.handleGradeOneClick = this.handleGradeOneClick.bind(this);
+  this.handleResetOneClick = this.handleResetOneClick.bind(this);
+  this.handleShowOneAnsClick = this.handleShowOneAnsClick.bind(this);
+  this.state = {isOneGraded: this.props.graded, isShowOneAnswer: false};
 }
 
-handleGradeClick() {
-  this.setState({isGraded: true, isButtonDiasbled:true});
+handleGradeOneClick() {
+  this.setState({isOneGraded: true});
   $(`input[name=${this.props.name}]`).attr('disabled', 'disabled');
 
 }
 
-handleResetClick() {
-  this.setState({isGraded: false, isShowAnswer:false, isButtonChecked:false});
+handleResetOneClick() {
+  this.setState({isOneGraded: false, isShowOneAnswer:false});
 
     $(`input[name=${this.props.name}]`).removeAttr("disabled");
       $(`input[name=${this.props.name}]`).prop("checked", false);
 
 }
 
-handleShowAnsClick() {
-  this.setState({isShowAnswer: true, isButtonChecked: true});
+handleShowOneAnsClick() {
+  this.setState({isShowOneAnswer: true});
 }
 
   render() {
-        const isGraded = this.state.isGraded;
-        const isShowAnswer = this.state.isShowAnswer;
+        const isGraded = this.state.isOneGraded;
+        const isShowAnswer = this.state.isShowOneAnswer;
         let ans = this.props.data2.correct
         let fullans = this.props.data2.answers[ans]
 
@@ -40,7 +40,7 @@ handleShowAnsClick() {
                 return(
                   <div>
               <h6> {fullans} </h6>
-              <button className="grade" onClick={this.handleResetClick}>
+              <button className="grade" onClick={this.handleResetOneClick}>
                 Reset
               </button>
             </div>)
@@ -50,7 +50,7 @@ handleShowAnsClick() {
                   return(
                     <div>
                     <h6>Correct!</h6>
-                <button className="grade" onClick={this.handleResetClick}>
+                <button className="grade" onClick={this.handleResetOneClick}>
                   Reset
                 </button>
               </div>)
@@ -61,11 +61,11 @@ handleShowAnsClick() {
               return(
             <div>
             <h6>WRONG!</h6>
-            <button className="grade" onClick={this.handleShowAnsClick}>
+            <button className="grade" onClick={this.handleShowOneAnsClick}>
               Show Answer
             </button>
 
-        <button className="grade" onClick={this.handleResetClick}>
+        <button className="grade" onClick={this.handleResetOneClick}>
           Reset
         </button>
       </div>)
@@ -77,7 +77,7 @@ handleShowAnsClick() {
          else {
           return(
             <div>
-              <button className="grade" onClick={this.handleGradeClick}>
+              <button className="grade" onClick={this.handleGradeOneClick}>
                 Grade
               </button>
               </div>

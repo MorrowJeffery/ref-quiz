@@ -16,17 +16,15 @@ class Quiz extends React.Component {
         qa1.push(<Question data2={data1} id={j}/>);
         qa1.push(
           <Answers
-          st={false}
+          graded={false}
           data1={data1[j]}
           name={'question'+j.toString()+'test'+this.props.k}/>);
-
-        //qa1.push(<Grade st={false} data2={data1[j]}/>);
     }
 
     return (
       <div>
       {qa1}
-    <GradeAll st={false}/>
+    <GradeAll graded={false}/>
       </div>
     );
   }
