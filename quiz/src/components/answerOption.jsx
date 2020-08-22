@@ -16,7 +16,9 @@ class Answers extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.graded !== prevProps.graded) {
-      this.setState({isOneGraded: this.props.graded})
+      this.setState({isOneGraded: this.props.graded,
+      isShowOneAnswer: false})
+
     }
   }
 

@@ -14,9 +14,9 @@ class Grade extends React.Component {
                 return(
                   <div>
               <h6> {fullans} </h6>
-              <button className="grade" onClick={this.props.resetclick}>
+              {/*<button className="grade" onClick={this.props.resetclick}>
                 Reset
-              </button>
+              </button>*/}
             </div>)
               }
               if(isShowAnswer!==true){
@@ -25,24 +25,26 @@ class Grade extends React.Component {
                   return(
                     <div>
                     <h6>Correct!</h6>
-                <button className="grade" onClick={this.props.resetclick}>
+                {/*<button className="grade" onClick={this.props.resetclick}>
                   Reset
-                </button>
+                </button>*/}
               </div>)
 
             }
 
             if(this.props.correct===false){
+              const isShowAnswer = false;
               return(
+
             <div>
             <h6>WRONG!</h6>
             <button className="grade" onClick={this.props.showanswerclick}>
               Show Answer
             </button>
 
-        <button className="grade" onClick={this.props.resetclick}>
+        {/*<button className="grade" onClick={this.props.resetclick}>
           Reset
-        </button>
+        </button>*/}
       </div>)
 
     }}
@@ -52,9 +54,9 @@ class Grade extends React.Component {
          if (isGraded!==true) {
           return(
             <div>
-              <button className="grade" onClick={this.props.gradeclick}>
+              {/*<button className="grade" onClick={this.props.gradeclick}>
                 Grade
-              </button>
+              </button>*/}
               </div>
         )
         }
