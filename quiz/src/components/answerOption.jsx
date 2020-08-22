@@ -15,7 +15,6 @@ class Answers extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
     if (this.props.graded !== prevProps.graded) {
       this.setState({isOneGraded: this.props.graded})
     }
@@ -29,7 +28,8 @@ class Answers extends React.Component {
   };
 
   handleGradeOneClick() {
-    this.setState({isOneGraded: true});
+    this.setState({isOneGraded: true}
+  );
   }
 
   handleResetOneClick() {
