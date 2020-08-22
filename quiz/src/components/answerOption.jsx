@@ -14,6 +14,13 @@ class Answers extends React.Component {
         isCorrect: false};
   }
 
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.graded !== prevProps.graded) {
+      this.setState({isOneGraded: this.props.graded})
+    }
+  }
+
   handleAnswerClick(ind) {
     let userAnswer = ind;
     let correctAnswer = this.props.data1.correct;

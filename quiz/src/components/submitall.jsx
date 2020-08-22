@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-  const GradeAll = (props) => {
+class GradeAll extends React.Component {
 
-    const [isGraded, setIsGraded] = useState(false);
-    const toggleg = () => setIsGraded(!isGraded);
-    if(isGraded){
-      return (
-          <button className="gradeall" onClick={toggleg}>
-            Reset Test
-          </button>
-        );
-    }
-    else {
-      return (
-          <button className="gradeall" onClick={toggleg}>
-            Grade Test
-          </button>
-
-        );
-    };
-}
+  render() {
+        const isGraded = this.props.graded;
+        if (isGraded===true) {
+            return(
+              <button className="grade" onClick={this.props.resetallclick}>
+                Reset Test
+              </button>)
+              }
+         if (isGraded!==true) {
+          return(
+              <button className="grade" onClick={this.props.gradeallclick}>
+                Grade Test
+              </button>
+        )
+        }
+      }}
 
 export default GradeAll;
