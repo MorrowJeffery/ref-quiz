@@ -33,17 +33,12 @@ class Quiz extends React.Component {
 
     let numcorrect= this.state.numcorrect
     let totalquestions = data1.length
-    let numincomplete= totalquestions - this.state.responses
-    let numwrong = this.state.responses - numcorrect
     let score = 0
     if(totalquestions>0){
      score =  numcorrect/totalquestions}
 
      qa1.push(<h5>
-       Correct: {numcorrect}<br/>
-       Wrong: {numwrong}<br/>
-       Incomplete: {numincomplete}<br/>
-       Score: {score}%</h5>);
+       Score: {numcorrect}/{totalquestions} = {score}%</h5>);
 
     //handle reset click here and pass into answers
     for (var j = 0; j < data1.length; j++) {

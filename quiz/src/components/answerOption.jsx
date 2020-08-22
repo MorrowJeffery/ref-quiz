@@ -6,8 +6,8 @@ class Answers extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleGradeOneClick = this.handleGradeOneClick.bind(this);
-    this.handleResetOneClick = this.handleResetOneClick.bind(this);
+    //this.handleGradeOneClick = this.handleGradeOneClick.bind(this);
+    //this.handleResetOneClick = this.handleResetOneClick.bind(this);
     this.handleShowOneAnsClick = this.handleShowOneAnsClick.bind(this);
     this.state = {isOneGraded: this.props.graded,
        isShowOneAnswer: false,
@@ -64,10 +64,10 @@ class Answers extends React.Component {
     return (
       <div>
       {listItems}
-      <Grade resetclick={this.handleResetOneClick}
+      <Grade //resetclick={this.handleResetOneClick}
               showanswerclick={this.handleShowOneAnsClick}
               showanswer={this.state.isShowOneAnswer}
-              gradeclick={this.handleGradeOneClick}
+              //gradeclick={this.handleGradeOneClick}
               onegraded={this.state.isOneGraded}
               name={radioName}
               data2={this.props.data1}
