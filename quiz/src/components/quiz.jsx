@@ -2,7 +2,7 @@ import React from 'react';
 import Answers from './answerOption.jsx'
 import Question from './question.jsx'
 import GradeAll from './submitall.jsx'
-import $ from 'jquery';
+//import $ from 'jquery';
 
 class Quiz extends React.Component {
 
@@ -20,7 +20,7 @@ class Quiz extends React.Component {
 
   handleResetAllClick() {
     this.setState({isAllGraded: false});
-    $(`input[name$=test${this.props.k}]`).prop("checked", false);
+    //$(`input[name$=test${this.props.k}]`).prop("checked", false);
   }
 
   render() {

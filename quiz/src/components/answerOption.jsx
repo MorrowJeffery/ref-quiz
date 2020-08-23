@@ -1,6 +1,6 @@
 import React from 'react';
 import Grade from './submitone.jsx'
-import $ from 'jquery';
+//import $ from 'jquery';
 
 class Answers extends React.Component {
 
@@ -27,17 +27,6 @@ class Answers extends React.Component {
     this.setState({ isCorrect: isCorrect});
   };
 
-  handleGradeOneClick() {
-    this.setState({isOneGraded: true}
-  );
-  }
-
-  handleResetOneClick() {
-    this.setState({isOneGraded: false,
-       isShowOneAnswer:false});
-    $(`input[name=${this.props.name}]`).prop("checked", false);
-  }
-
   handleShowOneAnsClick() {
     this.setState({isShowOneAnswer: true});
   }
@@ -62,10 +51,8 @@ class Answers extends React.Component {
     return (
       <div>
       {listItems}
-      <Grade //resetclick={this.handleResetOneClick}
-              showanswerclick={this.handleShowOneAnsClick}
+      <Grade showanswerclick={this.handleShowOneAnsClick}
               showanswer={this.state.isShowOneAnswer}
-              //gradeclick={this.handleGradeOneClick}
               onegraded={this.state.isOneGraded}
               name={radioName}
               data2={this.props.data1}
