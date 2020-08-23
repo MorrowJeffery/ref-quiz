@@ -11,8 +11,7 @@ class Quiz extends React.Component {
     this.handleGradeAllClick = this.handleGradeAllClick.bind(this);
     this.handleResetAllClick = this.handleResetAllClick.bind(this);
     this.state = {isAllGraded: false,
-      numcorrect: 0,
-      responses: 0};
+      numcorrect: 0};
   }
 
   handleGradeAllClick() {
@@ -27,27 +26,26 @@ class Quiz extends React.Component {
   render() {
 
     const data1 = Object.values(this.props.data[this.props.k]['qa'])
-    console.log(data1.length)
     var qa1 = [];
 
 
-    let numcorrect= this.state.numcorrect
+    let {numcorrect}= this.state
     let totalquestions = data1.length
     let score = 0
     if(totalquestions>0){
      score =  numcorrect/totalquestions}
 
-     qa1.push(<h5>
+     qa1.push(<h5 key={this.props.data[this.props.k].id}>
        Score: {numcorrect}/{totalquestions} = {score}%</h5>);
 
-    //handle reset click here and pass into answers
     for (var j = 0; j < data1.length; j++) {
-        qa1.push(<Question data2={data1} id={j}/>);
+        qa1.push(<Question data2={data1} id={j} key={j}/>);
         qa1.push(
           <Answers
           graded={this.state.isAllGraded}
           data1={data1[j]}
           name={'question'+j.toString()+'test'+this.props.k}
+          key={'question'+j.toString()+'test'+this.props.k}
           />);
     }
 

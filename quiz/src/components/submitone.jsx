@@ -9,59 +9,35 @@ class Grade extends React.Component {
         let fullans = this.props.data2.answers[ans];
 
         if (isGraded===true) {
-
             if(isShowAnswer===true){
                 return(
                   <div>
-              <h6> {fullans} </h6>
-              {/*<button className="grade" onClick={this.props.resetclick}>
-                Reset
-              </button>*/}
-            </div>)
+                    <h6> {fullans} </h6>
+                  </div>)
               }
               if(isShowAnswer!==true){
-                if(this.props.correct===true){
-
-                  return(
-                    <div>
-                    <h6>Correct!</h6>
-                {/*<button className="grade" onClick={this.props.resetclick}>
-                  Reset
-                </button>*/}
-              </div>)
-
-            }
-
-            if(this.props.correct===false){
-              const isShowAnswer = false;
-              return(
-
-            <div>
-            <h6>WRONG!</h6>
-            <button className="grade" onClick={this.props.showanswerclick}>
-              Show Answer
-            </button>
-
-        {/*<button className="grade" onClick={this.props.resetclick}>
-          Reset
-        </button>*/}
-      </div>)
-
-    }}
-
+                  if(this.props.correct===true){
+                    return(
+                      <div>
+                        <h6>Correct!</h6>
+                      </div>)
+                    }
+                  if(this.props.correct!==true){
+                    return(
+                      <div>
+                        <h6>WRONG!</h6>
+                        <button className="grade" onClick={this.props.showanswerclick}>
+                        Show Answer
+                        </button>
+                      </div>)
+                    }
+                  }
                 }
 
          if (isGraded!==true) {
-          return(
-            <div>
-              {/*<button className="grade" onClick={this.props.gradeclick}>
-                Grade
-              </button>*/}
-              </div>
-        )
+          return(<div></div>)
         }
-      }}
-
-
+      }
+    }
 
 export default Grade;

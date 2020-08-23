@@ -1,5 +1,5 @@
-const QUESTION_U2 = {
-  1:{
+const QUESTION_U2 = [
+  { id:'2usa1',
     question: 'Please indicate which player serves the penalty: Bench Minor Penalty to Team Official.',
     answers: [
       'Player on the ice when the infraction occurred.',
@@ -8,7 +8,7 @@ const QUESTION_U2 = {
     ],
     correct: 0
   },
-  2:{
+  { id:'2usa2',
     question: "Please indicate the proper face-off location: Premature Goalie Substitution.",
     answers: [
       "Neutral Zone Face-off spot.",
@@ -17,6 +17,6 @@ const QUESTION_U2 = {
     ],
     correct: 2
   }
-};
+];
 
 export default QUESTION_U2;

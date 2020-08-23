@@ -6,8 +6,6 @@ class Answers extends React.Component {
 
   constructor(props) {
     super(props);
-    //this.handleGradeOneClick = this.handleGradeOneClick.bind(this);
-    //this.handleResetOneClick = this.handleResetOneClick.bind(this);
     this.handleShowOneAnsClick = this.handleShowOneAnsClick.bind(this);
     this.state = {isOneGraded: this.props.graded,
        isShowOneAnswer: false,
@@ -48,7 +46,7 @@ class Answers extends React.Component {
     const answers = this.props.data1.answers;
     const radioName = this.props.name;
     const listItems = answers.map((answer,ind) =>
-    <div>
+    <div key={ind}>
     <ul className="answers">
     <li>
     <input type="radio"

@@ -7,15 +7,17 @@ class Quizzes extends React.Component {
     const datafilter = alltests
     var booklevels = [];
     for (var i = 0; i < datafilter.length; i++) {
-        booklevels.push(<h4> {datafilter[i].id} - Level {datafilter[i].level} </h4>);
-        booklevels.push(<Quiz data={datafilter} k={i}/>);
-    }
+      booklevels.push(
+        <div key={datafilter[i].id}>
+          <h4> {datafilter[i].book} - Level {datafilter[i].level} </h4>
+          <Quiz data={datafilter} k={i}/>
+        </div>);
+      }
     return (
-      <div className='wrapper'>
       <div className='quiz-header'>
       {booklevels}
       </div>
-      </div>
+
     );
   }
 }
