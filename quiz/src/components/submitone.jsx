@@ -5,8 +5,10 @@ class Grade extends React.Component {
   render() {
         const isGraded = this.props.onegraded;
         const isShowAnswer = this.props.showanswer;
-        let ans = this.props.data2.correct;
-        let fullans = this.props.data2.answers[ans];
+        let fullans = this.props.data2.correctanswer;
+
+
+
 
         if (isGraded===true) {
             if(isShowAnswer===true){
@@ -35,6 +37,7 @@ class Grade extends React.Component {
                 }
 
          if (isGraded!==true) {
+
           return(<div></div>)
         }
       }

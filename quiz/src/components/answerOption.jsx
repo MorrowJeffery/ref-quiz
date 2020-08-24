@@ -20,9 +20,9 @@ class Answers extends React.Component {
     }
   }
 
-  handleAnswerClick(ind) {
-    let userAnswer = ind;
-    let correctAnswer = this.props.data1.correct;
+  handleAnswerClick(answer) {
+    let userAnswer = answer;
+    let correctAnswer = this.props.data1.correctanswer;
     let isCorrect = userAnswer===correctAnswer;
     this.setState({ isCorrect: isCorrect});
   };
@@ -31,26 +31,35 @@ class Answers extends React.Component {
     this.setState({isShowOneAnswer: true});
   }
 
+
+
+
   render() {
-    const answers = this.props.data1.answers;
+    var a1 = [];
+    const answers = this.props.answers
     const radioName = this.props.name;
-    const listItems = answers.map((answer,ind) =>
-    <div key={ind}>
-    <ul className="answers">
-    <li>
-    <input type="radio"
-    disabled={this.state.isOneGraded}
-    name={radioName}
-    id={ind}
-    onClick={() => this.handleAnswerClick(ind)}/>
-    <label>{answer}</label>
-    </li>
-    </ul>
-    </div>
-    );
+
+    for (var q = 0; q < answers.length; q++) {
+      let a= answers[this.props.shuffleanswers[q]];
+      a1.push(
+        <div key={a}>
+        <ul className="answers">
+        <li>
+
+        <input type="radio"
+        disabled={this.state.isOneGraded}
+        name={radioName}
+        id={a}
+        onClick={()=> this.handleAnswerClick(a)}
+        />
+        <label>{a}</label>
+        </li>
+        </ul>
+       </div>);}
+
     return (
       <div>
-      {listItems}
+      {a1}
       <Grade showanswerclick={this.handleShowOneAnsClick}
               showanswer={this.state.isShowOneAnswer}
               onegraded={this.state.isOneGraded}

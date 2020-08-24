@@ -11,11 +11,13 @@ class Quiz extends React.Component {
     this.handleGradeAllClick = this.handleGradeAllClick.bind(this);
     this.handleResetAllClick = this.handleResetAllClick.bind(this);
     this.state = {isAllGraded: false,
+      quizorder:[],
       numcorrect: 0};
   }
 
   handleGradeAllClick() {
     this.setState({isAllGraded: true});
+
   }
 
   handleResetAllClick() {
@@ -24,31 +26,35 @@ class Quiz extends React.Component {
   }
 
   render() {
-
-    const data1 = Object.values(this.props.data[this.props.k]['qa'])
     var qa1 = [];
-
-
+    let {data} = this.props
     let {numcorrect}= this.state
-    let totalquestions = data1.length
+    let totalquestions = data.length
     let score = 0
     if(totalquestions>0){
      score =  numcorrect/totalquestions}
-
-     qa1.push(<h5 key={this.props.data[this.props.k].id}>
+     qa1.push(<h5 key={data.id}>
        Score: {numcorrect}/{totalquestions} = {score}%</h5>);
+    for (var r = 0; r < data.length; r++) {
+      let j= this.props.shuffleques[r]
 
-    for (var j = 0; j < data1.length; j++) {
-        qa1.push(<Question data2={data1} id={j} key={j}/>);
+
+      const allanswers =
+            data[j].incorrectanswers ? data[j].incorrectanswers.concat(data[j].correctanswer) : [];
+      var lenanswers = Array.from(Array(allanswers.length).keys())
+      var shuffleanswers = this.props.shufflefun(lenanswers)
+
+        qa1.push(<Question data2={data} id={j} key={j} num={r}/>);
         qa1.push(
           <Answers
           graded={this.state.isAllGraded}
-          data1={data1[j]}
-          name={'question'+j.toString()+'test'+this.props.k}
-          key={'question'+j.toString()+'test'+this.props.k}
+          data1={data[j]}
+          answers={allanswers}
+          shuffleanswers = {shuffleanswers}
+          name={'question'+r.toString()+'test'+this.props.shuffleques}
+          key={'question'+r.toString()+'test'+this.props.shuffleques}
           />);
     }
-
     return (
       <div>
       {qa1}

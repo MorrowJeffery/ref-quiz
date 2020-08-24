@@ -5,7 +5,7 @@ class Question extends React.Component {
   render() {
     return (
       <div>
-      <Count data2={this.props.data2} id1={this.props.id} />
+      <Count data2={this.props.data2} id1={this.props.id} num={this.props.num}/>
       <p className="question-asked questions" tabIndex="0">
 
         {this.props.data2[this.props.id].question}
