@@ -50,7 +50,7 @@ class Answers extends React.Component {
   }
 
   render() {
-    console.log('answers key',this.props.name)
+    //console.log('answers key',this.props.name)
       var a1 = [];
       const answers = this.props.answers
       const radioName = this.props.name;

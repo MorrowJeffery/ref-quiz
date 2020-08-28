@@ -12,14 +12,22 @@ class Quiz extends React.Component {
     this.handleGradeAllClick = this.handleGradeAllClick.bind(this);
     this.handleResetAllClick = this.handleResetAllClick.bind(this);
     this.handleCorrectAnswer = this.handleCorrectAnswer.bind(this);
+    this.handleTimerClick = this.handleTimerClick.bind(this);
 
     this.state = {isAllGraded: false,
       questionorder: [],
-      numcorrect: 0};
+      numcorrect: 0,
+    isTimed: false};
+  };
+
+  handleTimerClick() {
+    this.setState({isTimed: true});
+    console.log('I want it timed')
   };
 
   handleGradeAllClick() {
     this.setState({isAllGraded: true});
+    console.log('I want the timer to stop')
   };
 
   handleCorrectAnswer() {
@@ -31,15 +39,15 @@ class Quiz extends React.Component {
   handleResetAllClick() {//also need to clear answerorder
     this.setState({isAllGraded: false,
       questionorder: [],
+      isTimed: false,
       numcorrect: 0
     });
+    console.log('Timer should clear')
 
     $(`input[name$=test${this.props.id}]`).prop("checked", false);
   }
 
   render() {
-
-
     var qa1 = [];
     let {data} = this.props
     let {numcorrect}= this.state
@@ -47,8 +55,14 @@ class Quiz extends React.Component {
     let score = 0
     if(totalquestions>0){
      score =  Math.round((numcorrect/totalquestions)*100)}
-     qa1.push(<h5 key={this.props.id}>
-              Score: {numcorrect}/{totalquestions} = {score}%</h5>);
+     if(this.state.isTimed===false){
+     qa1.push(  <h4 key={this.props.id+'timerask'}> <button className='timer' onClick={this.handleTimerClick}>Time It!</button> </h4>);}
+     if(this.state.isTimed!==false){
+    qa1.push(   <h6 key={this.props.id+'timerresponse'}>I should be a running clock from 0 </h6>);
+     }
+      qa1.push( <h5 key={this.props.id}>
+              Score: {numcorrect}/{totalquestions} = {score}%</h5>
+            );
 
 var lenquestions = Array.from(Array(this.props.data.length).keys())
 let shufflequestions = createRandom(lenquestions)
