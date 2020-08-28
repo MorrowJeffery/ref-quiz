@@ -11,6 +11,7 @@ class Answers extends React.Component {
     this.state = {isOneGraded: this.props.graded,
        isShowOneAnswer: false,
        counter:0,
+        answerorder: [],
         isCorrect: false};
   }
 
@@ -20,7 +21,14 @@ class Answers extends React.Component {
       isShowOneAnswer: false
     })
 
+    if(this.props.graded===false){
+        this.setState({answerorder:[]})
     }
+
+    }
+
+
+
   }
 
   handleAnswerClick(answer,isgrade) {
@@ -28,7 +36,6 @@ class Answers extends React.Component {
     let correctAnswer = this.props.data1.correctanswer;
     let isCorrect = userAnswer===correctAnswer;
     this.setState({ isCorrect: isCorrect});
-    console.log('ig',isgrade)
 
 
     if(isCorrect===true && isgrade===true){
@@ -58,12 +65,25 @@ class Answers extends React.Component {
 
 
   render() {
+
     var a1 = [];
     const answers = this.props.answers
     const radioName = this.props.name;
 
     for (var q = 0; q < answers.length; q++) {
-      let a= answers[this.props.shuffleanswers[q]];
+      let a
+      let tempkey = this.state.answerorder
+      
+      if (this.props.graded===false){
+        //shuffle order of answer options if its in not graded state
+        let olda= answers[this.props.shuffleanswers[q]];
+        tempkey = tempkey.push(olda)
+        a = this.state.answerorder[q]
+    }
+    if (this.props.graded!==false){
+      //dont change order of answer options if its in graded state
+      a = tempkey[q]
+  }
       a1.push(
         <div key={a}>
         <ul className="answers">
@@ -79,6 +99,7 @@ class Answers extends React.Component {
         </li>
         </ul>
        </div>);}
+
 
     return (
       <div>
