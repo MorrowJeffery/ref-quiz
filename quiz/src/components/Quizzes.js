@@ -13,7 +13,6 @@ class Quizzes extends React.Component {
     for (var i1 = 0; i1 < datafilter.length; i1++) {
 
       const data = Object.values(datafilter[i1]['qa']);
-      console.log('quizzes key', datafilter[i1].id);
 
       booklevels.push(
         <div key={datafilter[i1].id}>

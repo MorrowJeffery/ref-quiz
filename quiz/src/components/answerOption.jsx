@@ -23,12 +23,11 @@ class Answers extends React.Component {
       })
       if (this.props.graded === false) {
         this.setState({
-          answerorder: []
+          answerorder: [],
+          isCorrect: false
         })
-        console.log('Did I reset');
       }
       if (this.props.graded !== false) {
-        console.log('updated', this.props.graded);
         if (this.state.isCorrect === true) {
           this.props.addpoints();
         }
@@ -37,8 +36,6 @@ class Answers extends React.Component {
   };
 
   handleAnswerClick(answer, isgrade) {
-    console.log('ans',answer)
-    console.log('ig',isgrade)
     let userAnswer = answer;
     let correctAnswer = this.props.data1.correctanswer;
     let isCorrect = userAnswer === correctAnswer;
@@ -71,7 +68,7 @@ class Answers extends React.Component {
           a = tempkey[q]
         }
         a1.push(
-        <div key={radioName+a}>
+        <div key={radioName+q}>
           <ul className="answers">
             <li>
               <input type="radio"

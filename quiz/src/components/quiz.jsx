@@ -3,7 +3,7 @@ import Answers from './answerOption.jsx'
 import Question from './question.jsx'
 import GradeAll from './submitall.jsx'
 import createRandom from './helpers.jsx';
-//import $ from 'jquery';
+import $ from 'jquery';
 
 class Quiz extends React.Component {
 
@@ -34,7 +34,7 @@ class Quiz extends React.Component {
       numcorrect: 0
     });
 
-    //$(`input[name$=test${this.props.k}]`).prop("checked", false);
+    $(`input[name$=test${this.props.id}]`).prop("checked", false);
   }
 
   render() {
