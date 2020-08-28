@@ -1,6 +1,5 @@
 import React from 'react';
 import Grade from './submitone.jsx'
-//import $ from 'jquery';
 
 class Answers extends React.Component {
 
@@ -50,7 +49,6 @@ class Answers extends React.Component {
   }
 
   render() {
-    //console.log('answers key',this.props.name)
       var a1 = [];
       const answers = this.props.answers
       const radioName = this.props.name;

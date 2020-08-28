@@ -3,7 +3,6 @@ import Answers from './answerOption.jsx'
 import Question from './question.jsx'
 import GradeAll from './submitall.jsx'
 import createRandom from './helpers.jsx';
-import $ from 'jquery';
 
 class Quiz extends React.Component {
 
@@ -36,15 +35,16 @@ class Quiz extends React.Component {
     }));
   };
 
-  handleResetAllClick() {//also need to clear answerorder
+  handleResetAllClick() {
     this.setState({isAllGraded: false,
       questionorder: [],
       isTimed: false,
       numcorrect: 0
     });
     console.log('Timer should clear')
-
-    $(`input[name$=test${this.props.id}]`).prop("checked", false);
+    for(const testanswersselected of document.querySelectorAll(`input[name$=test${this.props.id}]`)){
+      testanswersselected.checked=false;
+    }
   }
 
   render() {
