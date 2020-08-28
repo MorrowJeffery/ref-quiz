@@ -3,6 +3,7 @@ import Count from './questionCount.jsx'
 
 class Question extends React.Component {
   render() {
+    console.log('question key',this.props.id)
     return (
       <div>
       <Count data2={this.props.data2} id1={this.props.id} num={this.props.num}/>

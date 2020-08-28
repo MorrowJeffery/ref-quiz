@@ -11,19 +11,27 @@ class Quiz extends React.Component {
     super(props);
     this.handleGradeAllClick = this.handleGradeAllClick.bind(this);
     this.handleResetAllClick = this.handleResetAllClick.bind(this);
+    this.handleCorrectAnswer = this.handleCorrectAnswer.bind(this);
 
     this.state = {isAllGraded: false,
       questionorder: [],
       numcorrect: 0};
-  }
+  };
 
-  handleGradeAllClick(right) {
+  handleGradeAllClick() {
     this.setState({isAllGraded: true});
-    }
+  };
 
-  handleResetAllClick() {
+  handleCorrectAnswer() {
+    this.setState(prevState => ({
+      numcorrect: prevState.numcorrect + 1
+    }));
+  };
+
+  handleResetAllClick() {//also need to clear answerorder
     this.setState({isAllGraded: false,
-      questionorder: []
+      questionorder: [],
+      numcorrect: 0
     });
 
     //$(`input[name$=test${this.props.k}]`).prop("checked", false);
@@ -38,7 +46,7 @@ class Quiz extends React.Component {
     let totalquestions = data.length
     let score = 0
     if(totalquestions>0){
-     score =  numcorrect/totalquestions}
+     score =  Math.round((numcorrect/totalquestions)*100)}
      qa1.push(<h5 key={this.props.id}>
               Score: {numcorrect}/{totalquestions} = {score}%</h5>);
 
@@ -71,6 +79,7 @@ let shufflequestions = createRandom(lenquestions)
           data1={data[tempj]}
           answers={allanswers}
           shuffleanswers = {shuffleanswers}
+          addpoints={this.handleCorrectAnswer}
           name={'question'+i2.toString()+'test'+this.props.id}
           key={'question'+i2.toString()+'test'+this.props.id}
           />);

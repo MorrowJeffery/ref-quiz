@@ -10,7 +10,6 @@ class Answers extends React.Component {
     this.state = {
       isOneGraded: this.props.graded,
       isShowOneAnswer: false,
-      counter: 0,
       answerorder: [],
       isCorrect: false
     };
@@ -26,35 +25,27 @@ class Answers extends React.Component {
         this.setState({
           answerorder: []
         })
+        console.log('Did I reset');
+      }
+      if (this.props.graded !== false) {
+        console.log('updated', this.props.graded);
+        if (this.state.isCorrect === true) {
+          this.props.addpoints();
+        }
       }
     }
-  }
+  };
 
   handleAnswerClick(answer, isgrade) {
+    console.log('ans',answer)
+    console.log('ig',isgrade)
     let userAnswer = answer;
     let correctAnswer = this.props.data1.correctanswer;
     let isCorrect = userAnswer === correctAnswer;
     this.setState({
       isCorrect: isCorrect
     });
-    if (isCorrect === true && isgrade === true) {
-      this.setState({
-          counter: this.state.counter + 1
-        },
-        () => {
-          console.log(this.state.counter, 'counter');
-        }
-      );
-    }
-    if (isCorrect !== true && isgrade === true) {
-      this.setState({
-          counter: this.state.counter - 1
-        },
-        () => {
-          console.log(this.state.counter, 'counter');
-        }
-      );
-    }
+
   };
 
   handleShowOneAnsClick() {
@@ -62,6 +53,7 @@ class Answers extends React.Component {
   }
 
   render() {
+    console.log('answers key',this.props.name)
       var a1 = [];
       const answers = this.props.answers
       const radioName = this.props.name;
@@ -79,7 +71,7 @@ class Answers extends React.Component {
           a = tempkey[q]
         }
         a1.push(
-        <div key={a}>
+        <div key={radioName+a}>
           <ul className="answers">
             <li>
               <input type="radio"
@@ -92,6 +84,7 @@ class Answers extends React.Component {
             </li>
           </ul>
         </div>);}
+
     return (
       <div>
       {a1}
