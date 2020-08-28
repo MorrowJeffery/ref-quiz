@@ -7,24 +7,47 @@ class Answers extends React.Component {
   constructor(props) {
     super(props);
     this.handleShowOneAnsClick = this.handleShowOneAnsClick.bind(this);
+
     this.state = {isOneGraded: this.props.graded,
        isShowOneAnswer: false,
+       counter:0,
         isCorrect: false};
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.graded !== prevProps.graded) {
       this.setState({isOneGraded: this.props.graded,
-      isShowOneAnswer: false})
+      isShowOneAnswer: false
+    })
 
     }
   }
 
-  handleAnswerClick(answer) {
+  handleAnswerClick(answer,isgrade) {
     let userAnswer = answer;
     let correctAnswer = this.props.data1.correctanswer;
     let isCorrect = userAnswer===correctAnswer;
     this.setState({ isCorrect: isCorrect});
+    console.log('ig',isgrade)
+
+
+    if(isCorrect===true && isgrade===true){
+      this.setState({ counter: this.state.counter+1},
+        () => {
+  console.log(this.state.counter, 'counter');}
+
+      );
+    }
+
+    if(isCorrect!==true && isgrade===true){
+      this.setState({ counter: this.state.counter-1},
+        () => {
+  console.log(this.state.counter, 'counter');}
+
+
+      );
+    }
+
   };
 
   handleShowOneAnsClick() {
@@ -50,7 +73,7 @@ class Answers extends React.Component {
         disabled={this.state.isOneGraded}
         name={radioName}
         id={a}
-        onClick={()=> this.handleAnswerClick(a)}
+        onClick={()=> this.handleAnswerClick(a,this.state.isOneGraded)}
         />
         <label>{a}</label>
         </li>

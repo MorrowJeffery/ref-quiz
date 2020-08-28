@@ -11,8 +11,8 @@ const QUESTION_U2 = [
     question: "Please indicate the proper face-off location: Premature Goalie Substitution.",
     correctanswer:"Center Ice Face-off spot.",
     incorrectanswers: [
-      "Neutral Zone Face-off spot.",
-      "End Zone Face-off spot."
+      "Neutral Zone Face-off spot",
+      "End Zone Face-off spot"
     ]
   }
 ];

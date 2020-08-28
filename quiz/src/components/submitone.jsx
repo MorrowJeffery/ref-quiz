@@ -8,10 +8,9 @@ class Grade extends React.Component {
         let fullans = this.props.data2.correctanswer;
 
 
-
-
         if (isGraded===true) {
             if(isShowAnswer===true){
+
                 return(
                   <div>
                     <h6> {fullans} </h6>
@@ -25,6 +24,8 @@ class Grade extends React.Component {
                       </div>)
                     }
                   if(this.props.correct!==true){
+
+
                     return(
                       <div>
                         <h6>WRONG!</h6>
@@ -40,6 +41,7 @@ class Grade extends React.Component {
 
           return(<div></div>)
         }
+
       }
     }
 
