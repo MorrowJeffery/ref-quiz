@@ -13,6 +13,7 @@ class Quiz extends React.Component {
     this.handleResetAllClick = this.handleResetAllClick.bind(this);
 
     this.state = {isAllGraded: false,
+      questionorder: [],
       numcorrect: 0};
   }
 
@@ -21,11 +22,15 @@ class Quiz extends React.Component {
     }
 
   handleResetAllClick() {
-    this.setState({isAllGraded: false});
+    this.setState({isAllGraded: false,
+      questionorder: []
+    });
+
     //$(`input[name$=test${this.props.k}]`).prop("checked", false);
   }
 
   render() {
+
 
     var qa1 = [];
     let {data} = this.props
@@ -37,28 +42,41 @@ class Quiz extends React.Component {
      qa1.push(<h5 key={this.props.id}>
               Score: {numcorrect}/{totalquestions} = {score}%</h5>);
 
+var lenquestions = Array.from(Array(this.props.data.length).keys())
+let shufflequestions = createRandom(lenquestions)
 
-    for (var r = 0; r < data.length; r++) {
-      let j= this.props.shuffleques[r]
+    for (var i2 = 0; i2 < data.length; i2++) {
+      let tempj
+      let tempkey = this.state.questionorder
+
+      if (this.state.isAllGraded === false) {
+        //shuffle order of answer options if its in not graded state
+
+        let oldj = shufflequestions[i2];
+        tempkey = tempkey.push(oldj)
+        tempj = this.state.questionorder[i2]
+      }
+      if (this.state.isAllGraded !== false) {
+        //dont change order of answer options if its in graded state
+        tempj = tempkey[i2]
+      }
       const allanswers =
-            data[j].incorrectanswers ? data[j].incorrectanswers.concat(data[j].correctanswer) : [];
+        data[tempj].incorrectanswers ? data[tempj].incorrectanswers.concat(data[tempj].correctanswer) : [];
       var lenanswers = Array.from(Array(allanswers.length).keys())
       var shuffleanswers = createRandom(lenanswers)
-
-      qa1.push(<Question data2={data} id={j} key={j} num={r}/>);
+      qa1.push(<Question data2={data} id={tempj} key={tempj} num={i2}/>);
       qa1.push(
           <Answers
           graded={this.state.isAllGraded}
-          data1={data[j]}
+          data1={data[tempj]}
           answers={allanswers}
           shuffleanswers = {shuffleanswers}
-          name={'question'+r.toString()+'test'+this.props.shuffleques}
-          key={'question'+r.toString()+'test'+this.props.shuffleques}
+          name={'question'+i2.toString()+'test'+this.props.id}
+          key={'question'+i2.toString()+'test'+this.props.id}
           />);
     }
     return (
       <div>
-
       {qa1}
       <GradeAll graded={this.state.isAllGraded}
         test={this.props.k}
