@@ -6,46 +6,61 @@ import createRandom from './helpers.jsx';
 
 class Quiz extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.handleGradeAllClick = this.handleGradeAllClick.bind(this);
-    this.handleResetAllClick = this.handleResetAllClick.bind(this);
-    this.handleCorrectAnswer = this.handleCorrectAnswer.bind(this);
-    this.handleTimerClick = this.handleTimerClick.bind(this);
+    constructor(props) {
+      super(props);
+      this.handleGradeAllClick = this.handleGradeAllClick.bind(this);
+      this.handleResetAllClick = this.handleResetAllClick.bind(this);
+      this.handleCorrectAnswer = this.handleCorrectAnswer.bind(this);
+      this.handleTimerClick = this.handleTimerClick.bind(this);
 
-    this.state = {isAllGraded: false,
-      questionorder: [],
-      numcorrect: 0,
-    isTimed: false};
-  };
+      this.state = {
+        isAllGraded: false,
+        questionorder: [],
+        numcorrect: 0,
+        time: 0,
+        isTimed: false
+      };
+    };
 
-  handleTimerClick() {
-    this.setState({isTimed: true});
-    console.log('I want it timed')
-  };
-
-  handleGradeAllClick() {
-    this.setState({isAllGraded: true});
-    console.log('I want the timer to stop')
-  };
-
-  handleCorrectAnswer() {
-    this.setState(prevState => ({
-      numcorrect: prevState.numcorrect + 1
-    }));
-  };
-
-  handleResetAllClick() {
-    this.setState({isAllGraded: false,
-      questionorder: [],
-      isTimed: false,
-      numcorrect: 0
-    });
-    console.log('Timer should clear')
-    for(const testanswersselected of document.querySelectorAll(`input[name$=test${this.props.id}]`)){
-      testanswersselected.checked=false;
+    startTimer() {
+      this.setState(prevState => ({
+        time: prevState.time += 1
+      }))
     }
-  }
+
+    handleTimerClick() {
+      this.setState({
+        isTimed: true
+      });
+      this.timer = setInterval(() => this.startTimer(), 1000) //runs startTimer every second
+    };
+
+    handleGradeAllClick() {
+      clearInterval(this.timer);
+      this.setState({
+        isAllGraded: true
+      });
+    };
+
+    handleCorrectAnswer() {
+      this.setState(prevState => ({
+        numcorrect: prevState.numcorrect + 1
+      }));
+    };
+
+    handleResetAllClick() {
+      this.setState({
+        isAllGraded: false,
+        questionorder: [],
+        isTimed: false,
+        numcorrect: 0,
+        time: 0
+      });
+      console.log('Timer should clear')
+      for (const testanswersselected of document.querySelectorAll(`input[name$=test${this.props.id}]`)) {
+        testanswersselected.checked = false;
+      }
+    }
 
   render() {
     var qa1 = [];
@@ -55,12 +70,20 @@ class Quiz extends React.Component {
     let score = 0
     if(totalquestions>0){
      score =  Math.round((numcorrect/totalquestions)*100)}
-     if(this.state.isTimed===false){
-     qa1.push(  <h4 key={this.props.id+'timerask'}> <button className='timer' onClick={this.handleTimerClick}>Time It!</button> </h4>);}
+     if(this.state.isTimed===false && this.state.isAllGraded===false){
+       qa1.push(
+        <h4 key={this.props.id+'timerask'}>
+          <button className='timer' onClick={this.handleTimerClick}>Time It!</button>
+        </h4>
+      );}
+
      if(this.state.isTimed!==false){
-    qa1.push(   <h6 key={this.props.id+'timerresponse'}>I should be a running clock from 0 </h6>);
+       qa1.push(
+         <h6 key={this.props.id+'timerresponse'}> {this.state.time} </h6>
+       );
      }
-      qa1.push( <h5 key={this.props.id}>
+      qa1.push(
+        <h5 key={this.props.id}>
               Score: {numcorrect}/{totalquestions} = {score}%</h5>
             );
 
