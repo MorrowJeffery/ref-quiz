@@ -72,18 +72,18 @@ class Quiz extends React.Component {
      score =  Math.round((numcorrect/totalquestions)*100)}
      if(this.state.isTimed===false && this.state.isAllGraded===false){
        qa1.push(
-        <h4 key={this.props.id+'timerask'}>
-          <button className='timer' onClick={this.handleTimerClick}>Time It!</button>
+        <h4 className='testheader' key={this.props.id+'timerask'}>
+          <button className='specialbuttons testheader' onClick={this.handleTimerClick}>Time It!</button>
         </h4>
       );}
 
      if(this.state.isTimed!==false){
        qa1.push(
-         <h6 key={this.props.id+'timerresponse'}> {this.state.time} </h6>
+         <h6 className='testheader' key={this.props.id+'timerresponse'}> {this.state.time} </h6>
        );
      }
       qa1.push(
-        <h5 key={this.props.id}>
+        <h5  className='testheader' key={this.props.id}>
               Score: {numcorrect}/{totalquestions} = {score}%</h5>
             );
 

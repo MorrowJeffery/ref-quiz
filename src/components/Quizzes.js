@@ -16,7 +16,7 @@ class Quizzes extends React.Component {
 
       booklevels.push(
         <div key={datafilter[i1].id}>
-          <h4> {datafilter[i1].book} - Level {datafilter[i1].level} </h4>
+          <h4 className='testheader'> {datafilter[i1].book} - Level {datafilter[i1].level} </h4>
           <Quiz id={datafilter[i1].id} data={data}/>
         </div>);
       }

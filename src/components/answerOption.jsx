@@ -88,6 +88,8 @@ class Answers extends React.Component {
               onegraded={this.state.isOneGraded}
               name={radioName}
               data2={this.props.data1}
+              rulelink={this.props.data1.rulelink}
+              rulenum={this.props.data1.rulenum}
               correct={this.state.isCorrect}/>
       </div>
     );
