@@ -15,7 +15,7 @@ class Grade extends React.Component {
                   <div className='questionfooter'>
                     <p className='wrong'>Incorrect</p>
                     <div><a target="_blank" rel="noopener noreferrer" href={urlstr}>Rule Reference: {this.props.rulenum}</a></div>
-                    <div>The correct answer is: {fullans}</div>
+                    <div>Correct Answer: {fullans}</div>
                   </div>)
               }
               if(isShowAnswer!==true){
