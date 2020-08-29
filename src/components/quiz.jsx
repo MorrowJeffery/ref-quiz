@@ -34,6 +34,7 @@ class Quiz extends React.Component {
       this.timer = setInterval(() => this.startTimer(), 1000) //1000ms=1second
     };
     handleGradeAllClick() {
+      window.location.href = `#header${this.props.id}`
       clearInterval(this.timer);
       this.setState({
         isAllGraded: true
@@ -123,7 +124,6 @@ class Quiz extends React.Component {
       <div>
       {qa1}
       <GradeAll graded={this.state.isAllGraded}
-        test={this.props.k}
         gradeallclick={this.handleGradeAllClick}
         resetallclick={this.handleResetAllClick}
         gradescore={this.handleIsCorrect}/>
