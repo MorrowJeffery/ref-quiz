@@ -51,15 +51,30 @@ class H extends React.Component {
            USA Hockey
          </DropdownToggle>
          <DropdownMenu>
-           <DropdownItem onClick={() => this.props.fclick('USA Hockey','1')}>Level 1</DropdownItem>
-           <DropdownItem onClick={() => this.props.fclick('USA Hockey','2')}>Level 2</DropdownItem>
-           <DropdownItem onClick={() => this.props.fclick('USA Hockey','3')}>Level 3</DropdownItem>
-           <DropdownItem onClick={() => this.props.fclick('USA Hockey','4')}>Level 4</DropdownItem>
-           <DropdownItem onClick={() => this.props.fclick('USA Hockey','all')}>All Levels</DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','1')}>
+              Level 1
+           </DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','2')}>
+              Level 2
+           </DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','3')}>
+            Level 3
+           </DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','4')}>
+              Level 4
+           </DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','all')}>
+            All Levels
+           </DropdownItem>
            <DropdownItem divider />
            <DropdownItem>Sled</DropdownItem>
            <DropdownItem divider />
-           <DropdownItem>Penalty Options</DropdownItem>
+           <DropdownItem> <a className='dropdown-item'
+           href="https://www.usahockeyrulebook.com/page/show/1018524-appendix-i-summary-of-penalties/#panelTwo"
+           target="_blank"rel="noopener noreferrer"> Penalty Options</a></DropdownItem>
+           <DropdownItem> <a className='dropdown-item'
+           href="https://www.usahockeyrulebook.com/page/show/1018525-appendix-ii-summary-of-face-off-locations/#panelTwo"
+           target="_blank"rel="noopener noreferrer">Faceoff Locations</a></DropdownItem>
          </DropdownMenu>
        </Dropdown>
 
