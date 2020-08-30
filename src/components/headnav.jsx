@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Collapse,
   Navbar,
@@ -13,31 +13,49 @@ import {
   DropdownToggle
 } from 'reactstrap';
 
-const H = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const togglec = () => setIsOpen(!isOpen);
+class H extends React.Component {
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const toggledd = () => setDropdownOpen(!dropdownOpen);
+  constructor(props) {
+      super(props);
+      this.togglec = this.togglec.bind(this);
+      this.toggledd = this.toggledd.bind(this);
+      this.state = {
+        isOpen: false,
+        dropdownOpen: false
+      };
+    }
+    togglec() {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
+    }
 
+    toggledd() {
+      this.setState({
+        dropdownOpen: !this.state.dropdownOpen
+      });
+    }
+
+
+  render() {
       return (
       <header>
   <Navbar color="light" light expand="md">
     <NavbarBrand href="/">Ref Quiz</NavbarBrand>
-    <NavbarToggler onClick={togglec} />
-    <Collapse isOpen={isOpen} navbar>
+    <NavbarToggler onClick={this.togglec} />
+    <Collapse isOpen={this.state.isOpen} navbar>
       <Nav className="mr-auto" navbar>
 
-      <Dropdown nav isOpen={dropdownOpen} toggle={toggledd}>
+      <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggledd}>
          <DropdownToggle nav caret>
            USA Hockey
          </DropdownToggle>
          <DropdownMenu>
-           <DropdownItem>Level 1</DropdownItem>
-           <DropdownItem>Level 2</DropdownItem>
-           <DropdownItem>Level 3</DropdownItem>
-           <DropdownItem>Level 4</DropdownItem>
-           <DropdownItem>All Levels</DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','1')}>Level 1</DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','2')}>Level 2</DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','3')}>Level 3</DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','4')}>Level 4</DropdownItem>
+           <DropdownItem onClick={() => this.props.fclick('USA Hockey','all')}>All Levels</DropdownItem>
            <DropdownItem divider />
            <DropdownItem>Sled</DropdownItem>
            <DropdownItem divider />
@@ -63,6 +81,6 @@ const H = (props) => {
 );
 
 }
-
+}
 
 export default H;
