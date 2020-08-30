@@ -1,6 +1,16 @@
+body{
+  font-size: 1rem;
+}
+ul{
+  margin:0;
+  padding:0;
+}
 li{
   list-style: none;
-  padding:.5em;
+  padding:.5rem;
+  &:hover{
+    background-color: lightgrey;
+  }
 }
 .modal-body{
   height:70vh;
@@ -13,8 +23,9 @@ iframe{
 
 input,label{
   display:inline;
-  padding:.5em;
 }
+input{margin:0 1rem;}
+
 
 .testheader{
   background-color: rgb(255,153,0);

@@ -66,17 +66,17 @@ class Answers extends React.Component {
           a = tempkey[q]
         }
         a1.push(
-        <div key={radioName+q}>
-          <ul className="answers">
-            <li>
-              <label><input type="radio"
+        <div className='answers' key={radioName+q}>
+          <ul>
+
+              <label><li><input type="radio"
                       disabled={this.state.isOneGraded}
                       name={radioName}
                       id={a}
                       onClick={()=> this.handleAnswerClick(a,
                                                           this.state.isOneGraded)}/>
-              {a}</label>
-            </li>
+              {a}</li></label>
+
           </ul>
         </div>);}
 
