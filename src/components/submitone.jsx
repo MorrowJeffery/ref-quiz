@@ -6,7 +6,7 @@ class Grade extends React.Component {
         const isGraded = this.props.onegraded;
         const isShowAnswer = this.props.showanswer;
         let fullans = this.props.data2.correctanswer;
-        const urlstr = 'https://www.usahockeyrulebook.com/page/show/'+this.props.rulelink
+        const urlstr = 'https://www.usahockeyrulebook.com/page/show/'+this.props.rulelink+'/#panelTwo'
 
         if (isGraded===true) {
             if(isShowAnswer===true){
