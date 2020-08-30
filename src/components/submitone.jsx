@@ -1,7 +1,7 @@
 import React from 'react';
+import Rule from '../components/rule.jsx';
 
 class Grade extends React.Component {
-
   render() {
         const isGraded = this.props.onegraded;
         const isShowAnswer = this.props.showanswer;
@@ -14,7 +14,9 @@ class Grade extends React.Component {
                 return(
                   <div className='questionfooter'>
                     <p className='wrong'>Incorrect</p>
-                    <div><a target="_blank" rel="noopener noreferrer" href={urlstr}>Rule Reference: {this.props.rulenum}</a></div>
+                    <div>
+                    <Rule hrf={urlstr} rulenum={this.props.rulenum}/>
+                    </div>
                     <div>Correct Answer: {fullans}</div>
                   </div>)
               }
@@ -25,32 +27,26 @@ class Grade extends React.Component {
                       <p className='right'>
                         Correct
                       </p>
-                    <a target="_blank" rel="noopener noreferrer" href={urlstr}>Rule Reference: {this.props.rulenum}</a>
+                    <Rule hrf={urlstr} rulenum={this.props.rulenum}/>
                     </div>
                   )
                     }
                   if(this.props.correct!==true){
-
-
                     return(
                       <div className='questionfooter'>
                         <p className='wrong'> Incorrect </p>
-                        <a target="_blank" rel="noopener noreferrer" href={urlstr}>Rule Reference: {this.props.rulenum}</a>
+                        <Rule hrf={urlstr} rulenum={this.props.rulenum}/>
                         <button className="specialbuttons" onClick={this.props.showanswerclick}>
                         Correct Answer
                         </button>
-
-
                       </div>)
                     }
                   }
                 }
 
          if (isGraded!==true) {
-
           return(<div></div>)
         }
-
       }
     }
 
