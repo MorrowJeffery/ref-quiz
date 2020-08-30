@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class Rule extends React.Component {
   constructor(props) {
@@ -9,21 +10,26 @@ class Rule extends React.Component {
     };
   };
 
-  handleRuleClick(url) {
-    this.setState({isRuleShow:true})
+  handleRuleClick() {
+    this.setState({isRuleShow:!this.state.isRuleShow})
   }
 
   render() {
-if(this.state.isRuleShow===true){
-        window.showModalDialog(`${this.props.hrf}`)}
-
-  return (
-    <div>
-      <button className="specialbuttons"
-      onClick={this.handleRuleClick}>Rule:{this.props.rulenum}</button>
-    </div>
-  );
+      return (
+        <div>
+    <button className="specialbuttons" onClick={this.handleRuleClick}>Rule Reference</button>
+          <Modal className="modal-xl" isOpen={this.state.isRuleShow}>
+            <ModalHeader>Rule:{this.props.rulenum}</ModalHeader>
+            <ModalBody>
+            <iframe src={this.props.hrf} title={`Rulebook Documentation for Rule:${this.props.rulenum} (Test ID: ${this.props.name})`}/>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={this.handleRuleClick}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+</div>)
+        }
 
 }
-}
+
 export default Rule;

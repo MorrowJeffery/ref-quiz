@@ -10,12 +10,11 @@ class Grade extends React.Component {
 
         if (isGraded===true) {
             if(isShowAnswer===true){
-
                 return(
                   <div className='questionfooter'>
                     <p className='wrong'>Incorrect</p>
                     <div>
-                    <Rule hrf={urlstr} rulenum={this.props.rulenum}/>
+                    <Rule grade={this.props.onegraded} hrf={urlstr} rulenum={this.props.rulenum} name={this.props.name}/>
                     </div>
                     <div>Correct Answer: {fullans}</div>
                   </div>)
@@ -27,7 +26,7 @@ class Grade extends React.Component {
                       <p className='right'>
                         Correct
                       </p>
-                    <Rule hrf={urlstr} rulenum={this.props.rulenum}/>
+                    <Rule grade={this.props.onegraded} hrf={urlstr} rulenum={this.props.rulenum} name={this.props.name}/>
                     </div>
                   )
                     }
@@ -35,7 +34,7 @@ class Grade extends React.Component {
                     return(
                       <div className='questionfooter'>
                         <p className='wrong'> Incorrect </p>
-                        <Rule hrf={urlstr} rulenum={this.props.rulenum}/>
+                        <Rule grade={this.props.onegraded} hrf={urlstr} rulenum={this.props.rulenum} name={this.props.name}/>
                         <button className="specialbuttons" onClick={this.props.showanswerclick}>
                         Correct Answer
                         </button>

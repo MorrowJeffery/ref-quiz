@@ -2,6 +2,14 @@ li{
   list-style: none;
   padding:.5em;
 }
+.modal-body{
+  height:70vh;
+}
+
+iframe{
+  width: 100%;
+  height:100%;
+}
 
 input,label{
   display:inline;
