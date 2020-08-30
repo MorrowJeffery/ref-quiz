@@ -8,10 +8,13 @@ ul{
 li{
   list-style: none;
   padding:.5rem;
-  &:hover{
-    background-color: lightgrey;
-  }
 }
+
+.answers:hover{
+    background-color: lightgrey;
+}
+
+
 .modal-body{
   height:70vh;
 }
