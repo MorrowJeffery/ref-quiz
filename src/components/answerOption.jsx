@@ -69,13 +69,13 @@ class Answers extends React.Component {
         <div key={radioName+q}>
           <ul className="answers">
             <li>
-              <input type="radio"
+              <label><input type="radio"
                       disabled={this.state.isOneGraded}
                       name={radioName}
                       id={a}
                       onClick={()=> this.handleAnswerClick(a,
                                                           this.state.isOneGraded)}/>
-              <label>{a}</label>
+              {a}</label>
             </li>
           </ul>
         </div>);}
