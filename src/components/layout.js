@@ -11,7 +11,7 @@ class Layout extends React.Component {
     this.filterClick = this.filterClick.bind(this);
     this.state = {
       isFiltered: false,
-      newdata:testFilter('USA Hockey','all')
+      newdata:testFilter('USA Hockey','1')
     };
   };
 
