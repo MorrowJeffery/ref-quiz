@@ -12,13 +12,12 @@ class Quiz extends React.Component {
       this.handleGradeAllClick = this.handleGradeAllClick.bind(this);
       this.handleResetAllClick = this.handleResetAllClick.bind(this);
       this.handleCorrectAnswer = this.handleCorrectAnswer.bind(this);
-      this.handleTimerClick = this.handleTimerClick.bind(this);
       this.state = {
         isAllGraded: false,
         questionorder: [],
         numcorrect: 0,
         time: 0,
-        isTimed: false
+        isTimed: true
       };
     };
 
@@ -27,12 +26,11 @@ class Quiz extends React.Component {
         time: prevState.time += 1
       }))
     }
-    handleTimerClick() {
-      this.setState({
-        isTimed: true
-      });
+
+    componentDidMount(){
       this.timer = setInterval(() => this.startTimer(), 1000) //1000ms=1second
-    };
+    }
+
     handleGradeAllClick() {
       window.location.href = `#header${this.props.id}`
       clearInterval(this.timer);
@@ -46,10 +44,12 @@ class Quiz extends React.Component {
       }));
     };
     handleResetAllClick() {
+      window.location.href = `#header${this.props.id}`
+      this.timer = setInterval(() => this.startTimer(), 1000)
       this.setState({
         isAllGraded: false,
         questionorder: [],
-        isTimed: false,
+        isTimed: true,
         numcorrect: 0,
         time: 0
       });
