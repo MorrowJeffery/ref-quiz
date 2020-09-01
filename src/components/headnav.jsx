@@ -77,10 +77,10 @@ class H extends React.Component {
            <DropdownItem onClick={() => this.props.fclick('USA Hockey','4')}>
               Level 4
            </DropdownItem>*/}
-           <DropdownItem onClick={() => this.props.fclick('USA Hockey','all')}>
+             {/*<DropdownItem onClick={() => this.props.fclick('USA Hockey','all')}>
             All Levels
            </DropdownItem>
-        {/* <DropdownItem divider />
+           <DropdownItem divider />
            <DropdownItem>Sled</DropdownItem>*/}
            <DropdownItem divider />
            <DropdownItem> <a className='dropdown-item'
@@ -98,7 +98,7 @@ class H extends React.Component {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem>
-               Coming Soom
+               Coming Soon
             </DropdownItem>
             </DropdownMenu>
           </Dropdown>
@@ -109,7 +109,7 @@ class H extends React.Component {
              </DropdownToggle>
              <DropdownMenu>
                <DropdownItem>
-                  Coming Soom
+                  Coming Soon
                </DropdownItem>
                </DropdownMenu>
              </Dropdown>

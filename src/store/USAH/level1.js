@@ -47,12 +47,13 @@ const QUESTION_U1 =
     ]
   },
   { id:'1usa6',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
-    question: "In the two-official system, the official on the goal line watches the entire play and the puck.",
-    correctanswer:'True',
+  rulelink:'1084675-rule-624-icing-the-puck',
+  rulenum:'624c',//checked
+    question: 'Please indicate the proper face-off location: Icing error by officials',
+    correctanswer:"End Zone Face-off spot",
     incorrectanswers: [
-      "False"
+      "Neutral Zone Face-off spot",
+      "Center Ice Face-off spot"
     ]
   },
   { id:'1usa7',
@@ -65,13 +66,13 @@ const QUESTION_U1 =
     ]
   },
   { id:'1usa8',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
-    question: "With play in the neutral zone, the officials in a two-official system should be:",
-    correctanswer:'On opposite blue lines with both skates in the attacking zones',
+  rulelink:'1084477-rule-401-penalties',
+  rulenum:'401b',//checked
+    question: "During the course of a youth hockey game Team A receives 15 penalties. The coach responsible for the team at the time of the 15th penalty is immediately given a _______.",
+    correctanswer:'Game suspension and is ejected for the remainder of that game',
     incorrectanswers: [
-      "On opposite blue lines with both skates in the neutral zone",
-      "On their blue line"
+      "Bench minor and may stay on the bench for the remainder of that game",
+      "Game misconduct and is ejected for the remainder of that game and the following game"
     ]
   },
   { id:'1usa9',
@@ -86,7 +87,7 @@ const QUESTION_U1 =
   },
   { id:'1usa10',
   rulelink:'1084478-rule-402-minor-penalties',
-  rulenum:'402b',
+  rulenum:'402b',//checked
     question: "All bench minor penalties must be served by a non-penalized player who was on the ice at the time of the infraction, except the goalkeeper.",
     correctanswer:'True',
     incorrectanswers: [
@@ -132,14 +133,15 @@ const QUESTION_U1 =
       "False"
     ]
   },
+
   { id:'1usa15',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
-    question: "This situation simulates play in a youth game using the two-official system. The back official should signal he/she is watching the goalkeeper substitute for another player during play by:",
-    correctanswer:'Pointing his non-whistle arm at the retiring goalkeeper',
+  rulelink:'1084571-calling-of-penalties',
+  rulenum:'Situation 8', //checked
+    question: "Team A is one minute into a power play, Team B commits another penalty and the referee has his/her hand up for a delayed call. Before the offending team can get possession and control of the puck, Team A scores",
+    correctanswer:'The penalty currently being served is terminated and the new penalty is assessed and served',
     incorrectanswers: [
-      "Pointing his non-whistle arm at the substituting team's bench",
-      "Pointing his non-whistle arm at the substituting team's end zone"
+      "The player currently serving a penalty stays in the box, and the delayed penalty is terminated",
+      "Both the penalty being served and the delayed penalty are terminated because of the goal"
     ]
   },
   { id:'1usa16',
@@ -192,7 +194,7 @@ const QUESTION_U1 =
   },
   { id:'1usa21',
   rulelink:'1084675-rule-624-icing-the-puck',
-  rulenum:'624a(Note)',//checked
+  rulenum:'624a(Note) & 409a',//checked
     question: "With a delayed penalty in effect, the non-offending team ices the puck. Where is the ensuing face-off located?",
     correctanswer:'At a neutral zone face-off spot outside the blue line of the team that iced the puck',
     incorrectanswers: [
@@ -221,7 +223,7 @@ const QUESTION_U1 =
   },
   { id:'1usa24',
   rulelink:'1084688-rule-630-off-sides',
-  rulenum:'630a',//cheked
+  rulenum:'630a',//checked
     question: "A player is offside when they do not have skate contact with any part of the neutral zone or the blue line when the puck crosses the determining edge of the blue line",
     correctanswer:'True',
     incorrectanswers: [
@@ -229,8 +231,8 @@ const QUESTION_U1 =
     ]
   },
   { id:'1usa25',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
+  rulelink:'1084353-players-in-uniform',
+  rulenum:'Situation 5',//checked
     question: "A player receives a penalty and is not listed on the scoresheet. The proper action to be taken by the officials is?",
     correctanswer:"Add the player's name to the scoresheet and assess the penalty as long as the maximum number of players is not already listed on the scoresheet, and assess a bench minor.",
     incorrectanswers: [
@@ -239,8 +241,8 @@ const QUESTION_U1 =
     ]
   },
   { id:'1usa26',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
+  rulelink:'1084493-misconduct-penalties',
+  rulenum:'Situation 5',//checked
     question: "A player has been assessed a second misconduct penalty in the same game. At the time the penalty is assessed, the penalty timekeeper fails to notify the referee that the player has just received his second misconduct in one game, requiring a game misconduct penalty. The situation is brought to the attention of the referee after a few minutes of play following the incident. What action should the referee take?",
     correctanswer:'After being informed, have the player removed from the game and have the scoresheet reflect the proper assessment.',
     incorrectanswers: ["After being informed at the next stoppage, assess a bench minor to the offending team and assess the game misconduct to the offending player",
@@ -257,8 +259,8 @@ const QUESTION_U1 =
     ]
   },
   { id:'1usa28',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
+  rulelink:'1084355-change-of-players',
+  rulenum:'Situation 14', //checked
     question: "If a player on the penalty bench remains there after the expiration of their penalty (while his/her team is entitled to return to full strength), may his/her team place another skater on the ice as long as the originally penalized player remains on the penalty bench?",
     correctanswer:'No, the player on the penalty bench must be on the ice and at the bench before they can be substituted',
     incorrectanswers: [
@@ -276,56 +278,207 @@ const QUESTION_U1 =
     ]
   },
   { id:'1usa30',
-  rulelink:'1084675-rule-624-icing-the-puck',
-  rulenum:'624c',//checked
-    question: 'Please indicate the proper face-off location: Icing error by officials',
-    correctanswer:"End Zone Face-off spot",
+  rulelink:'1089267-goal-scored',
+  rulenum:'GOAL SCORED',//checked
+    question: 'The proper signal for a goal scored is pointing at the goal with your non-whistle hand while simultaneously blowing the whistle',
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+
+  { id:'1usa31',
+  rulelink:'1084657-rule-612-face-off-locations',
+  rulenum:'612b',//checked
+    question: 'All face offs during a hockey game will take place at one of the nine (9) designated face-off spots on the ice surface',
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+  { id:'1usa32',
+  rulelink:'1084672-rule-621-high-sticks',
+  rulenum:'621c',//checked
+    question: 'Please indicate the proper face-off location: High Sticked puck',
+    correctanswer:"End Zone Face-off",
     incorrectanswers: [
       "Neutral Zone Face-off spot",
       "Center Ice Face-off spot"
     ]
   },
-  { id:'1usa31',
-  rulelink:'1084477-rule-401-penalties',
-  rulenum:'401b',//checked
-    question: "During the course of a youth hockey game Team A receives 15 penalties. The coach responsible for the team at the time of the 15th penalty is immediately given a _______.",
-    correctanswer:'Game suspension and is ejected for the remainder of that game',
-    incorrectanswers: [
-      "Bench minor and may stay on the bench for the remainder of that game",
-      "Game misconduct and is ejected for the remainder of that game and the following game"
-    ]
-  },
-
-  { id:'1usa32',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
-    question: "Team A is one minute into a power play, Team B commits another penalty and the referee has his/her hand up for a delayed call. Before the offending team can get possession and control of the puck, Team A scores",
-    correctanswer:'The penalty currently being served is terminated and the new penalty is assessed and served',
-    incorrectanswers: [
-      "The player currently serving a penalty stays in the box, and the delayed penalty is terminated",
-      "Both the penalty being served and the delayed penalty are terminated because of the goal"
-    ]
-  },
   { id:'1usa33',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
-    question: "During an altercation a youth player from Team A receives a minor for roughing, a major and game misconduct for fighting and a match penalty for removing his/her opponent's helmet. The player from Team B receives a minor for roughing. How long is Team A shorthanded?",
-    correctanswer:'10 minutes',
+  rulelink:'1015129-codes-of-conduct',
+  rulenum:"On-Ice Official's Code of Conduct", //checked
+    question: 'An official should answer all reasonable questions and requests and should admit their mistakes when they make them',
+    correctanswer:"True",
     incorrectanswers: [
-      "5 minutes",
-      "12 minutes"
+      "False"
     ]
   },
   { id:'1usa34',
-  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
-  rulenum:'601a(3)',
-    question: "When assessing a penalty, the official should always stare directly into the eyes of the player on whom he/ she is assessing the penalty.",
-    correctanswer:'False',
+  rulelink:'1084405-rule-307-equipment-measurement',
+  rulenum:"307a", //checked
+    question: 'A team can request more than one equipment measurement per stoppage of play',
+    correctanswer:"False",
     incorrectanswers: [
       "True"
     ]
+  },
+  { id:'1usa35',
+  rulelink:'1084356-injured-players',
+  rulenum:"Situation 1", //checked
+    question: 'When should you stop play for an injured/hurt player',
+    correctanswer:"Immediately if the injury appears to be serious",
+    incorrectanswers: [
+      "Immediately, even if the injury appears to be minor",
+      "You must always wait until the injured player's team has possession of the puck"
+    ]
+  },
+  { id:'1usa36',
+  rulelink:'1062658-standard-of-play-casebook',
+  rulenum:"Situation 2", //checked
+    question: "According to USA Hockey's Standard of Play initiative, lifting an opponent's stick will always be a penalty",
+    correctanswer:"False",
+    incorrectanswers: [
+      "True"
+    ]
+  },
+  { id:'1usa37',
+  rulelink:'1084665-rule-617-goals-and-assists',
+  rulenum:"617c(4)", //checked
+    question: 'A goal should be disallowed if an attacking player was in the goal crease when the puck entered the goal',
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+  { id:'1usa38',
+  rulelink:'1062658-standard-of-play-casebook',
+  rulenum:"Situation 3", //checked
+    question: "Which of the following is an illigal play according to USA Hockey's Standard of Play Initiative",
+    correctanswer:"Poking the glove of an opponent with the stick, preventing the player from being able to shoot the puck",
+    incorrectanswers: [
+      "Using the free arm to maintain their body position while carrying the puck",
+      "Both options are illigal"
+    ]
+  },
+  { id:'1usa39',
+  rulelink:'1062658-standard-of-play-casebook',
+  rulenum:"Situation 12", //checked
+    question: "According to USA Hockey's Standard of Play Initiative, players are entitled to the ice they occupy as long as they are able to maintain their own foot speed and body position between the puck and opponent",
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+  { id:'1usa40',
+  rulelink:'1084664-rule-616-fouled-from-behind',
+  rulenum:"616a & BM 61", //checked
+    question: "Which is NOT one of the five criteria that has to be met for a penalty shot to be awarded?",
+    correctanswer:"The player is fouled from behind, diagonally from behind, or from the side",
+    incorrectanswers: [
+      "The player is deprived of a reasonable scoring opportunity",
+      "There is no opponent present between the player and the opposing goalkeeper",
+      "The player must be beyond his or her defending blue line (ie neutral and attacking zone)",
+      "The player must be in possession and control of the puck"
+    ]
+  },
+  { id:'1usa41',
+  rulelink:'1084648-rule-604-body-checking',
+  rulenum:'604b',//checked
+    question: 'A boys 12 & Under team is playing a boys 14 & Under team. If both coaches agree:',
+    correctanswer:"Even though the coaches have agreed otherwise, the game must use body contact rules.",
+    incorrectanswers: [
+      "The teams may check but only safely.", "The teams may use body checking in the game."
+    ]
+  },
+  { id:'1usa42',
+  rulelink:'1084477-rule-401-penalties',
+  rulenum:'401b',//checked
+    question: 'A player in one game receives a minor penalty for tripping, a double minor for unnecessary roughness, and a minor and misconduct for charging. This player:',
+    correctanswer:"Has five penalties and should be assessed a game misconduct penalty.",
+    incorrectanswers: [
+      "Should be told to behave.", "Only has four penalties."
+    ]
+  },
+  { id:'1usa43',
+  rulelink:'1084654-rule-610-delaying-the-game',
+  rulenum:'610d',//checked
+    question: 'A minor penalty for delay of game shall be assessed to a goalkeeper who shoots the puck directly (non deflected) outside of the playing area, except when the puck inadvertently leaves the playing area in a location that is not protected by glass or screen: (example players bench).',
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+  { id:'1usa44',
+  rulelink:'1084688-rule-630-off-sides',
+  rulenum:'630e',//checked
+    question: 'A linesman makes an obvious error in stopping play for a puck carried off-sides. The ensuing face-off shall take place at the Center Ice face-off spot',
+    correctanswer:"False",
+    incorrectanswers: [
+      "True"
+    ]
+  },
+  { id:'1usa45',
+  rulelink:'1084485-rule-408-delayed-penalties',
+  rulenum:'408b',//checked
+    question: 'Three (3) players from the same team are on the penalty bench serving non-coincident minor penalties assessed at different times. When the first penalty expires, that player whose penalty expired may return to the ice immediately',
+    correctanswer:"False",
+    incorrectanswers: [
+      "True"
+    ]
+  },
+
+  { id:'1usa46',
+  rulelink:'1084489-rule-411-progressive-suspensions',
+  rulenum:'411b(Note)',//checked
+    question: 'Officials are required to submit a game report immediately following the game for any major penalty falling in the aggressive infraction category, game misconduct or match penalty that is assessed',
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+  { id:'1usa47',
+  rulelink:'1084645-rule-601-abuse-of-officials-and-other-misconduct',
+  rulenum:'601e(3)', //checked
+    question: 'In addition to a racial/ethnic slur, a match penalty can be assessed for any language that is deemed offensive, hateful ordiscriminatory in nature',
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+  { id:'1usa48',
+  rulelink:'1084674-rule-623-hooking',
+  rulenum:'623b',//checked
+    question: 'A major plus a game misconduct penalty shall be assessed to any player who injures an opponent as a result of hooking',
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+  { id:'1usa49',
+  rulelink:'1084718-rule-639-tripping-clipping-leg-checking',
+  rulenum:'639',//checked
+    question: 'Tripping, Clipping, Leg Checking and Slew Footing all carry the same penalty options, Minor or Major Penalty OR Major Penalty and Game Misconduct if an injury occurs',
+    correctanswer:"True",
+    incorrectanswers: [
+      "False"
+    ]
+  },
+  { id:'1usa50',
+  rulelink:'1084676-rule-625-interference',
+  rulenum:'625b',//checked
+    question: 'Please indicate the proper face-off location: Goal Crease Violation',
+    correctanswer:"Neutral Zone Face-off ",
+    incorrectanswers: [
+      "End Zone Face-off spot",
+      "Center Ice Face-off spot."
+    ]
   }
+
+
 ];
+
 
 export default QUESTION_U1;
 
