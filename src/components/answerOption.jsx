@@ -67,17 +67,24 @@ class Answers extends React.Component {
         }
         a1.push(
         <div key={radioName+q}>
+
           <ul>
 
-              <label><li className='answers'><input type="radio"
+              <label><li className='answers'>
+
+              <input type="radio"
                       disabled={this.state.isOneGraded}
                       name={radioName}
                       id={a}
                       onClick={()=> this.handleAnswerClick(a,
                                                           this.state.isOneGraded)}/>
-              {a}</li></label>
+
+              {a}
+
+              </li></label>
 
           </ul>
+
         </div>);}
 
     return (
