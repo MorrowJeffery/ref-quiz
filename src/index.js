@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Quizzes from './components/Quizzes.js';
-import H from './components/headnav.jsx';
+import Layout from './components/layout.js';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
 
 ReactDOM.render(
 <div>
-      <H/>
-    <Quizzes />
+    <Layout />
 </div>
     ,
   document.getElementById('root')

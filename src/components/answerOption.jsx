@@ -1,6 +1,5 @@
 import React from 'react';
 import Grade from './submitone.jsx'
-//import $ from 'jquery';
 
 class Answers extends React.Component {
 
@@ -50,7 +49,6 @@ class Answers extends React.Component {
   }
 
   render() {
-    //console.log('answers key',this.props.name)
       var a1 = [];
       const answers = this.props.answers
       const radioName = this.props.name;
@@ -69,17 +67,24 @@ class Answers extends React.Component {
         }
         a1.push(
         <div key={radioName+q}>
-          <ul className="answers">
-            <li>
+
+          <ul>
+
+              <label><li className='answers'>
+
               <input type="radio"
                       disabled={this.state.isOneGraded}
                       name={radioName}
                       id={a}
                       onClick={()=> this.handleAnswerClick(a,
                                                           this.state.isOneGraded)}/>
-              <label>{a}</label>
-            </li>
+
+              {a}
+
+              </li></label>
+
           </ul>
+
         </div>);}
 
     return (
@@ -90,6 +95,8 @@ class Answers extends React.Component {
               onegraded={this.state.isOneGraded}
               name={radioName}
               data2={this.props.data1}
+              rulelink={this.props.data1.rulelink}
+              rulenum={this.props.data1.rulenum}
               correct={this.state.isCorrect}/>
       </div>
     );
