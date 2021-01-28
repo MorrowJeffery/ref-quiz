@@ -1,6 +1,9 @@
 {
   "name": "quiz",
   "version": "0.1.0",
+  "engines": {
+    "npm": "6.x"
+  },
   "private": true,
   "homepage": "https://headieh.github.io/ref-quiz",
   "dependencies": {
@@ -22,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
+    "predeploy": "npm build",
     "deploy": "gh-pages -b master -d build",
     "heroku-postbuild": "npm build"
   },
